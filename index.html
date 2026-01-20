@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Launch Countdown</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  body {
+    background:#0b0b0b;
+    color:#ffffff;
+    font-family: Arial, sans-serif;
+    text-align:center;
+    padding-top:60px;
+  }
+  .logo {
+    max-width:140px;
+    margin-bottom:20px;
+  }
+  .timer {
+    font-size:48px;
+    font-weight:bold;
+    margin:20px 0;
+  }
+</style>
+</head>
+
+<body>
+
+<img src="LOGO_URL_HERE" class="logo">
+
+<h1>🚀 Project Launch In</h1>
+
+<div id="timer" class="timer">Loading…</div>
+
+<img src="GIF_URL_HERE" style="max-width:260px;">
+
+<script>
+const target = new Date("2026-02-01T18:00:00Z").getTime();
+
+setInterval(() => {
+  const now = Date.now();
+  const diff = target - now;
+
+  if (diff <= 0) {
+    document.getElementById("timer").innerHTML = "WE ARE LIVE 🚀";
+    return;
+  }
+
+  const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+  const h = Math.floor((diff / (1000 * 60 * 60)) % 24);
+  const m = Math.floor((diff / (1000 * 60)) % 60);
+  const s = Math.floor((diff / 1000) % 60);
+
+  document.getElementById("timer").innerHTML =
+    ${d}d : ${h}h : ${m}m : ${s}s;
+}, 1000);
+</script>
+
+</body>
+</html>
